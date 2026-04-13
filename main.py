@@ -39,14 +39,9 @@ def find_non_surjective_element(mapping: dict, target: set):
 def my_floor(x: float) -> int:
     """Return floor(x) without using math.floor."""
     # === TODO ===
-    trunc = int(x)
-
-    if x > trunc: #if the number is greater than its trunc value, round up
-        return trunc + 1
-    
-    return trunc
+    return int(x // 1) #//returns floor of the quotient
     # === END TODO ===
-#int(3.2) = 3, so if the number is greater than its trunc value, round up, works with negative numbers too
+#more concise than truncating method, dividing by 1 applies the floor effect to the quotient
 
 def my_ceil(x: float) -> int:
     """Return ceil(x) without using math.ceil."""
