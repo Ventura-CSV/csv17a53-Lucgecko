@@ -4,10 +4,21 @@ from __future__ import annotations
 def find_non_injective_pair(mapping: dict) -> tuple | None:
     """Return (x1, x2) where f(x1)==f(x2) and x1!=x2, or None if injective."""
     # === TODO ===
-    # Your code here
-    pass
-    # === END TODO ===
 
+    #track keys mapped to values, s1 = { value: original_key }
+    values_s1 = {}
+    
+    for key, value in mapping.items():
+        if value in values_s1: #check for a collision, return the original key and the current key
+            return (values_s1[value], key)
+        
+        values_s1[value] = key #stores the value produced by the key
+
+    return None
+
+    # === END TODO ===
+#values_s1 is created as an empty dict so that we can loop through every key and value pair from the input mapping
+#collision check to find the non-injective pair, record the new value and return None if the mapping is injective without duplicates
 
 def find_non_surjective_element(mapping: dict, target: set):
     """Return one target element with no input mapping to it, or None if surjective."""
