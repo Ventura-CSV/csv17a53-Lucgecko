@@ -46,6 +46,6 @@ def my_floor(x: float) -> int:
 def my_ceil(x: float) -> int:
     """Return ceil(x) without using math.ceil."""
     # === TODO ===
-    # Your code here
-    pass
+    return -int(-x // 1)
     # === END TODO ===
+#utilizes similar logic to floor, negates the input then divides by 1 to floor, negate back in the end
