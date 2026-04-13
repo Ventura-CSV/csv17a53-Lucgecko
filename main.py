@@ -7,7 +7,7 @@ def find_non_injective_pair(mapping: dict) -> tuple | None:
 
     #track keys mapped to values, s1 = { value: original_key }
     values_s1 = {}
-    
+
     for key, value in mapping.items():
         if value in values_s1: #check for a collision, return the original key and the current key
             return (values_s1[value], key)
@@ -23,10 +23,18 @@ def find_non_injective_pair(mapping: dict) -> tuple | None:
 def find_non_surjective_element(mapping: dict, target: set):
     """Return one target element with no input mapping to it, or None if surjective."""
     # === TODO ===
-    # Your code here
-    pass
-    # === END TODO ===
 
+    #collect values reached by the mapping
+    values_r1 = set(mapping.values())
+
+    #iterate through to find elements not in values_r1
+    for elem in target:
+        if elem not in values_r1:
+            return elem
+
+    return None #if all elems in target are found via values_r1, it's surjective
+    # === END TODO ===
+#similar logic to injective pair, converted to a set, then check target against values_r1, then return None if every elem was successfully mapped
 
 def my_floor(x: float) -> int:
     """Return floor(x) without using math.floor."""
