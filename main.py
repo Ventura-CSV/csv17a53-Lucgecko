@@ -39,10 +39,14 @@ def find_non_surjective_element(mapping: dict, target: set):
 def my_floor(x: float) -> int:
     """Return floor(x) without using math.floor."""
     # === TODO ===
-    # Your code here
-    pass
-    # === END TODO ===
+    trunc = int(x)
 
+    if x > trunc: #if the number is greater than its trunc value, round up
+        return trunc + 1
+    
+    return trunc
+    # === END TODO ===
+#int(3.2) = 3, so if the number is greater than its trunc value, round up, works with negative numbers too
 
 def my_ceil(x: float) -> int:
     """Return ceil(x) without using math.ceil."""
